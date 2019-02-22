@@ -1,0 +1,144 @@
+<!--pages/storageConsole/storageConsole.wxml-->
+<canvas canvas-id="mycanvas" class='canvas' id="mycanvas" wx:if="{{isShowCav}}">
+</canvas>
+<scroll-view class="container-scroll" scroll-y>
+  <view class='container'>
+    <view class="image">
+      <image src="{{imagePath}}" mode="aspectFill"></image>
+      <view class="user">
+        <button wx:if="{{!avatarUrl}}" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">
+          获取头像
+        </button>
+        <image wx:else src="{{avatarUrl}}" mode="aspectFill"></image>
+      </view>
+    </view>
+    <view class='report'>
+      <image src='../../images/star.svg'></image>
+      <text>颜值报告</text>
+    </view>
+    <view class="emotion">
+      <text>{{emotion}}</text>
+      <view class='em_line'>
+        <view class='eml_circle'></view>
+        <view class='eml_l'></view>
+      </view>
+    </view>
+    <view class='gender'>
+      <block wx:if="{{score.gender.type=='male'}}">
+        <image wx:if="{{score.race.type=='yellow'}}" src='../../images/male_y.svg'></image>
+        <image wx:elif="{{score.race.type=='white'}}" src='../../images/male_w.svg'></image>
+        <image wx:else src='../../images/male_b.svg'></image>
+      </block>
+      <block wx:else>
+        <image wx:if="{{score.race.type=='yellow'}}" src='../../images/female_y.svg'></image>
+        <image wx:elif="{{score.race.type=='white'}}" src='../../images/female_w.svg'></image>
+        <image wx:else src='../../images/female_b.svg'></image>
+      </block>
+    </view>
+    <view class='result'>
+      <view class='hr'>
+        <view class='hr_line'></view>
+        <text>测试结果</text>
+        <view wx:if="{{nickName}}" class='nickname'>
+          by {{nickName}}
+        </view>
+      </view>
+
+      <view>你大概有：{{score.age?score.age+"岁":"......?"}}</view>
+      <view>
+        <text>颜值得分：</text>
+        <progress percent="{{scoreFake}}" border-radius="15rpx" active="true" font-size="30rpx" stroke-width="30rpx" />
+        <text>{{scoreFake+" 分"}}</text>
+      </view>
+      <view class='hr'>
+        <view class='hr_line'></view>
+        <text>颜值评价</text>
+      </view>
+      <view wx:if="{{scoreFake}}">
+        <block wx:if="{{score.gender.type=='male'}}">
+          <text wx:if="{{scoreFake > 76 && scoreFake <= 80}}">
+            颜值即正义，你就是正义的化身
+          </text>
+          <text wx:if="{{scoreFake > 80 && scoreFake <= 82}}">
+            你的帅气过分了
+          </text>
+          <text wx:elif="{{scoreFake > 82 && scoreFake <= 84}}">
+            过儿，是你么
+          </text>
+          <text wx:elif="{{scoreFake > 84 && scoreFake <= 86}}">
+            剑眉星眸，气宇轩昂，明目皓齿，灿若星河
+          </text>
+          <text wx:elif="{{scoreFake > 86 && scoreFake <= 88}}">
+            你就是这条gai上最靓的仔
+          </text>
+          <text wx:elif="{{scoreFake > 88 && scoreFake <= 90}}">
+            潘安之容，徐公之貌 
+          </text>
+          <text wx:elif="{{scoreFake > 90 && scoreFake <= 92}}">
+            长着一副明星脸的你，出门得戴口罩遮脸吧？ 
+          </text>
+          <text wx:elif="{{scoreFake > 92 && scoreFake <= 94}}">
+            “妈妈，我要嫁给他” 
+          </text>
+          <text wx:elif="{{scoreFake > 94 && scoreFake <= 96}}">
+            夜空中最亮的那颗星在你面前黯然失色
+          </text>
+          <text wx:elif="{{scoreFake > 96 && scoreFake <= 98}}">
+            世间竟有如此俊朗之人 
+          </text>
+          <text wx:elif="{{scoreFake > 98 && scoreFake <= 100}}">
+            来自星星的你，地球住的还习惯吗？
+          </text>
+        </block>
+        <block wx:else>
+
+          <text wx:if="{{scoreFake > 76 && scoreFake <= 80}}">
+            是你吗，白雪公主
+          </text>
+          <text wx:if="{{scoreFake > 80 && scoreFake <= 82}}">
+           仿佛清晨的带着露水的花朵清新可人，又好像入夜时带着霞光的月色明艳撩人
+          </text>
+          <text wx:elif="{{scoreFake > 82 && scoreFake <= 84}}">
+              想一睹你芳容的人从北京排到了巴黎
+          </text>
+          <text wx:elif="{{scoreFake > 84 && scoreFake <= 86}}">
+           沉鱼落雁之容，闭月羞花之貌
+          </text>
+          <text wx:elif="{{scoreFake > 86 && scoreFake <= 88}}">
+            你的美凝固了时间，惊艳了岁月
+          </text>
+          <text wx:elif="{{scoreFake > 88 && scoreFake <= 90}}">
+            歪，110吗，这个吕孩子美的犯规了
+          </text>
+          <text wx:elif="{{scoreFake > 90 && scoreFake <= 92}}">
+            长着一副明星脸的你，出门得戴口罩遮脸吧？ 
+          </text>
+          <text wx:elif="{{scoreFake > 92 && scoreFake <= 94}}">
+            多么华丽的辞藻形容你都苍白无力 
+          </text>
+          <text wx:elif="{{scoreFake > 94 && scoreFake <= 96}}">
+            回眸一笑百媚生，六宫粉黛无颜色
+          </text>
+          <text wx:elif="{{scoreFake > 96 && scoreFake <= 98}}">
+            像百合般淡雅高贵，又像玫瑰般艳美热烈 
+          </text>
+          <text wx:elif="{{scoreFake > 98 && scoreFake <= 100}}">
+            你的美倾国倾城
+          </text>
+        </block>
+      </view>
+    </view>
+    <view class='btn-group'>
+      <view class='btn' bindtap='restart'>
+        <image src='../../images/restart.svg'></image>
+      </view>
+      <view class='btn' bindtap='score'>
+        <view class='topnum'>{{top}}</view>
+        <image src='../../images/score.svg'></image>
+      </view>
+      <view class='btn' bindtap='share'>
+        <image src='../../images/share.svg'></image>
+      </view>
+    </view>
+  </view>
+</scroll-view>

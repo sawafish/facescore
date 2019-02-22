@@ -1,0 +1,30 @@
+<!--index.wxml-->
+<view class="container">
+  <image class='logo' src='../../images/logo.png'></image>
+  <!-- 上传图片 -->
+  <view class="uploader">
+    <view class="waybtn" bindtap="takephotopop">
+      <image src='../../images/camera.svg'></image>
+    </view>
+    <view class="waybtn" bindtap="doUpload">
+      <image src='../../images/file.svg'></image>
+    </view>
+    <view wx:if="{{imgpath}}" class='annotation_img' bindtap='list'>
+      <image src='../../images/list.svg'></image>
+    </view>
+    <view class='annotation' wx:if="{{!imgpath}}">
+      <text> 仅支持单张人脸检测测试，当照片中有多张人脸时，默认检测照片中人脸面积最大的那张人脸进行测试。</text>
+    </view>
+  </view>
+  <view class='pop {{takephoto?"active":""}}'>
+    <camera hidden='{{!takephoto}}' device-position="front" flash="off" binderror="error" style="width: 100%; height: 85%;"></camera>
+    <view hidden='{{!takephoto}}' class='btn-group'>
+      <view class="btn" bindtap="takephoto">
+        <image src='../../images/go.svg'></image>
+      </view>
+      <view class="btn" bindtap="uploadCancle">
+        <image src='../../images/close.svg'></image>
+      </view>
+    </view>
+  </view>
+</view>

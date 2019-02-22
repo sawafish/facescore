@@ -1,0 +1,149 @@
+/**index.wxss**/
+
+page {
+  width: 100wh;
+  height: 100vh;
+  background: linear-gradient(-30deg, #ffb3a7, #f47983, #177cb0, #a3e2c5);
+  background-size: 400% 400%;
+  animation: Gradient 15s ease infinite;
+}
+
+@keyframes Gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.container {
+  width: 100wh;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo {
+  width: 100rpx;
+  height: 173rpx;
+  margin: 0 0 100rpx 0;
+}
+
+.pop {
+  width: 0;
+  height: 0;
+  border-radius: 10rpx;
+  position: fixed;
+  background: #fff;
+  opacity: 0;
+  top: 50%;
+  left: 50%;
+  transition: all 0.3s linear;
+  overflow: hidden;
+}
+
+.pop.active {
+  width: 90vw;
+  height: 90vh;
+  top: 5vh;
+  left: 5vw;
+  opacity: 1;
+}
+
+camera {
+  border-radius: 10rpx 10rpx 0 0;
+}
+
+.btn-group .btn {
+  height: 80rpx;
+  width: 80rpx;
+  border-radius: 40rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn-group .btn image {
+  height: 80rpx;
+  width: 80rpx;
+}
+
+.btn-group {
+  width: 60%;
+  height: 15%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.waybtn {
+  width: 240rpx;
+  height: 240rpx;
+  border: 4rpx solid #fff;
+  box-shadow: 0 0 20rpx rgba(255, 255, 255, 0.1);
+  color: #fff;
+  border-radius: 120rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.waybtn image {
+  width: 100rpx;
+  height: 100rpx;
+}
+
+.waybtn:nth-child(2) {
+  margin-top: 50rpx;
+}
+
+.annotation_img {
+  position: fixed;
+  bottom: 50rpx;
+  left: 50rpx;
+  width: 70rpx;
+  height: 70rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 35rpx;
+  border: 2rpx solid #fff;
+  box-sizing: border-box;
+}
+
+.annotation_img image {
+  width: 50rpx;
+  height: 50rpx;
+}
+
+.annotation {
+  font-size: 14rpx;
+  color: silver;
+  position: fixed;
+  bottom: 10rpx;
+  left: 20rpx;
+  right: 20rpx;
+  text-align: center;
+}
+
+.hide {
+  display: none;
+}
+
+.canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2000;
+  width: 748rpx;
+  height: 1336rpx;
+}

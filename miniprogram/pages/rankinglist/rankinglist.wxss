@@ -1,0 +1,179 @@
+/* miniprogram/pages/rankinglist/rankinglist.wxss */
+
+page {
+  width: 100wh;
+  height: 100vh;
+  background: linear-gradient(-30deg, #ffb3a7, #f47983, #177cb0, #a3e2c5);
+  background-size: 400% 400%;
+  animation: Gradient 15s ease infinite;
+  color: #f5f7fa;
+}
+
+@keyframes Gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.container {
+  width: 100wh;
+  height: calc(100vh - 120rpx);
+  position: fixed;
+  top: 120rpx;
+  left: 0;
+}
+
+.list_item {
+  width: 90%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.9);
+  height: 80rpx;
+  border-radius: 10rpx;
+  margin: 20rpx auto;
+  font-size: 28rpx;
+  color: #177cb0;
+  border: 6rpx double transparent;
+  box-sizing: border-box;
+}
+
+.list_item .rank {
+  width: 85rpx;
+  height: 50rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.list_item .rank .rank_text {
+  min-width: 40rpx;
+  height: 40rpx;
+  padding: 0 6rpx;
+  box-sizing: border-box;
+  border-radius: 20rpx;
+  background: #177cb0;
+  color: #fff;
+  font-size: 24rpx;
+  font-weight: bold;
+  text-align: center;
+  line-height: 40rpx;
+}
+
+.list_item:first-child {
+  height: 100rpx;
+}
+
+.self {
+  color: #f47983;
+  border: 6rpx double #f47983;
+  box-shadow: 0 0 10rpx #f47983;
+  background: rgba(255, 255, 255, 1);
+  animation: blink 2s infinite linear;
+}
+
+@keyframes blink {
+  0% {
+    box-shadow: 0 0 10rpx #f47983;
+  }
+
+  50% {
+    box-shadow: 0 0 30rpx #f47983;
+  }
+
+  100% {
+    box-shadow: 0 0 10rpx #f47983;
+  }
+}
+
+.self .rank .rank_text {
+  background: #f47983;
+}
+
+.list_item .gender {
+  width: 40rpx;
+  height: 40rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.list_item .gender image {
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.list_item progress {
+  width: 330rpx;
+  margin: 0 20rpx;
+}
+
+.list_item .score {
+  font-size: 28rpx;
+}
+
+.list_item:first-child .rank image {
+  width: 80rpx;
+  height: 80rpx;
+}
+
+.list_item:first-child .rank {
+  height: 80rpx;
+}
+
+.list_item:first-child .score {
+  font-size: 32rpx;
+  font-weight: bold;
+}
+
+.tab {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  height: 100rpx;
+  background: linear-gradient(to top, #f5f7fa, rgba(255, 255, 255, 0.85));
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.tab>view {
+  height: 100rpx;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #666;
+  font-size: 30rpx;
+  font-weight: bold;
+}
+
+.tab>view image {
+  height: 40rpx;
+  width: 40rpx;
+  margin-right: 10rpx;
+}
+
+.tab>view.active {
+  box-shadow: 0 0 20rpx #177cb0 inset;
+  color: #177cb0;
+}
+
+.tab>view:last-child.active {
+  box-shadow: 0 0 20rpx #f47983 inset;
+  color: #f47983;
+}
+
+.tab>view:first-child {
+  border-right: 1rpx solid silver;
+}

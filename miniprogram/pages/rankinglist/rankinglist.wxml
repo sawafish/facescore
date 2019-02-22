@@ -1,0 +1,45 @@
+<view class='tab'>
+  <view class='tab_male {{malemark?"active":""}}' bindtap='tab'>
+    <image wx:if='{{!malemark}}' src="../../images/male.svg"></image>
+    <image wx:else src="../../images/male_act.svg"></image>
+    <text>蓝颜榜</text>
+  </view>
+  <view class='tab_female {{!malemark?"active":""}}' bindtap='tab'>
+    <image wx:if='{{malemark}}' src="../../images/female.svg"></image>
+    <image wx:else src="../../images/female_act.svg"></image>
+    <text>红颜榜</text>
+  </view>
+</view>
+<scroll-view class="container" scroll-y>
+  <block wx:if="{{malemark}}">
+    <view class='list_item {{openid==item._openid?"self":""}}' wx:for="{{toplistmale}}" wx:key="index">
+      <view class='rank'>
+        <image wx:if="{{index==0}}" src='../../images/champion.svg'></image>
+        <view wx:else class='rank_text'>{{index+1}}</view>
+      </view>
+      <view class='gender'>
+        <image wx:if="{{item.race=='yellow'}}" src='../../images/male_y.svg'></image>
+        <image wx:elif="{{item.race=='white'}}" src='../../images/male_w.svg'></image>
+        <image wx:else src='../../images/male_b.svg'></image>
+      </view>
+      <progress percent="{{item.score}}" border-radius="12rpx" stroke-width="24rpx" />
+      <view class='score'>{{item.score}}分</view>
+    </view>
+
+  </block>
+  <block wx:else>
+    <view class='list_item {{openid==item._openid?"self":""}}' wx:for="{{toplistfemale}}" wx:key="index">
+      <view class='rank'>
+        <image wx:if="{{index==0}}" src='../../images/champion.svg'></image>
+        <view wx:else class='rank_text'>{{index+1}}</view>
+      </view>
+      <view class='gender'>
+        <image wx:if="{{item.race=='yellow'}}" src='../../images/female_y.svg'></image>
+        <image wx:elif="{{item.race=='white'}}" src='../../images/female_w.svg'></image>
+        <image wx:else src='../../images/female_b.svg'></image>
+      </view>
+      <progress percent="{{item.score}}" border-radius="12rpx" stroke-width="24rpx" />
+      <view class='score'>{{item.score}}分</view>
+    </view>
+  </block>
+</scroll-view>
