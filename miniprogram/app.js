@@ -8,7 +8,7 @@ App({
     wx.request({
       url: 'https://aip.baidubce.com/oauth/2.0/token?grant_type=client_credentials&client_id=fuilOgbE9PTFDMy1u8mXsvEG&client_secret=cEOS1TLDxVRbwFpTHBB9nfa2yIWtqFlR',
       success(res) {
-        that.globalData.token = res.data.access_token
+        that.globalData.token = res.data.access_token;
       }
     });
     if (!wx.cloud) {

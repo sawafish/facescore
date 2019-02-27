@@ -1,0 +1,69 @@
+<!--pages/storageConsole/storageConsole.wxml-->
+<canvas canvas-id="mycanvas" class='canvas' id="mycanvas" wx:if="{{isShowCav}}">
+</canvas>
+<scroll-view class="container-scroll" scroll-y>
+  <view class='container'>
+    <view class='compare_img'>
+      <view class="image" bindtap='doUpload'>
+        <image class='choose' wx:if="{{!imagePath}}" src='../../images/file.svg'></image>
+        <image wx:else src="{{imagePath}}" mode="aspectFill"></image>
+      </view>
+      <view class='vs'>
+        <image src="../../images/vs.svg"></image>
+      </view>
+      <view class="image" bindtap='doUploadTwo'>
+        <image class='choose' wx:if="{{!imagePathTwo}}" src='../../images/file.svg'></image>
+        <image wx:else src="{{imagePathTwo}}" mode="aspectFill"></image>
+      </view>
+    </view>
+
+
+    <view class='report'>
+      <image src='../../images/star.svg'></image>
+      <text>相似度报告</text>
+    </view>
+
+
+    <view class='result'>
+      <view class='hr'>
+        <view class='hr_line'></view>
+        <text>测试结果</text>
+      </view>
+      <view>
+        <text>相似度得分：</text>
+        <progress percent="{{score}}" border-radius="15rpx" active="true" font-size="30rpx" stroke-width="30rpx" />
+        <text>{{score?score+" 分":"分"}}</text>
+      </view>
+      <view class='hr'>
+        <view class='hr_line'></view>
+        <text>相似度评价</text>
+      </view>
+      <view wx:if="{{score}}">
+        <text wx:if="{{score >= 0 && score <= 20}}">
+          额，也许你们其他地方存在着某种联系
+          </text>
+        <text wx:if="{{score > 20 && score <= 40}}">
+          你们有那么一点点相似
+          </text>
+        <text wx:elif="{{score > 40 && score <= 60}}">
+          可能这就是缘分吧
+          </text>
+        <text wx:elif="{{score > 60 && score <= 80}}">
+          是什么让你们如此的相像，一定是上辈子就有的缘分，嗯，一定是
+          </text>
+        <text wx:elif="{{score > 80 && score <= 100}}">
+          如果不是同一个人，或者你们没有血缘关系的话，就赶紧回去问问父母是怎么回事吧
+          </text>
+      </view>
+    </view>
+
+    <view class='btn-group'>
+      <view class='btn' bindtap='restart'>
+        <image src='../../images/restart.svg'></image>
+      </view>
+      <view class='btn' bindtap='share'>
+        <image src='../../images/share.svg'></image>
+      </view>
+    </view>
+  </view>
+</scroll-view>

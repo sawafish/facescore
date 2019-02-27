@@ -1,0 +1,296 @@
+/* pages/storageConsole/storageConsole.wxss */
+
+page {
+  width: 100wh;
+  height: 100vh;
+  background: linear-gradient(-30deg, #ffb3a7, #f47983, #177cb0, #a3e2c5);
+  background-size: 400% 400%;
+  animation: Gradient 15s ease infinite;
+  color: #f5f7fa;
+}
+
+@keyframes Gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.canvas {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin: -175px 0 0 -150px;
+  z-index: 2000;
+  width: 300px;
+  height: 350px;
+}
+
+.report {
+  width: 132rpx;
+  height: 132rpx;
+  border-radius: 50%;
+  border: 6rpx solid #f47983;
+  color: #f47983;
+  font-size: 28rpx;
+  font-weight: bold;
+  text-align: center;
+  position: fixed;
+  top: 10rpx;
+  right: 10rpx;
+  transform: rotate(45deg);
+}
+
+.report image {
+  width: 42rpx;
+  height: 42rpx;
+  position: absolute;
+  top: 20rpx;
+  right: 46rpx;
+}
+
+.report text {
+  position: absolute;
+  bottom: 30rpx;
+  left: 0;
+  width: 100%;
+}
+
+.container-scroll {
+  width: 100wh;
+  height: 100vh;
+}
+
+.container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.container>.image {
+  width: 360rpx;
+  height: 360rpx;
+  border-radius: 180rpx;
+  border: 4rpx double #f5f7fa;
+  margin: 100rpx auto 50rpx;
+  overflow: hidden;
+  position: relative;
+}
+
+.image>image {
+  width: 360rpx;
+  height: 400rpx;
+  margin: 0 auto;
+}
+
+.user {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+  position: fixed;
+  top: 190px;
+  left: 160rpx;
+  background: #fff;
+  border: 2rpx solid #fff;
+  overflow: hidden;
+}
+
+.user button {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+  position: absolute;
+  border: none;
+  outline: none;
+  background: #f5f7fa;
+  color: silver;
+  font-size: 22rpx;
+  text-align: center;
+  line-height: 100rpx;
+  padding: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.user image {
+  width: 100rpx;
+  height: 100rpx;
+  margin: 0 auto;
+}
+
+.hr {
+  font-size: 28rpx;
+  width: 70%;
+  margin: 0 auto;
+  height: 60rpx;
+  font-weight: bold;
+  line-height: 60rpx;
+  position: relative;
+}
+
+.nickname {
+  color: #fff;
+  font-size: 14rpx;
+  position: absolute;
+  bottom: -10rpx;
+  left: 125rpx;
+}
+
+.hr .hr_line {
+  position: absolute;
+  width: 30%;
+  height: 6rpx;
+  left: 0;
+  bottom: 0;
+  background: linear-gradient(to right, #fff, transparent);
+}
+
+.result {
+  width: 70%;
+  margin: 0 auto;
+}
+
+.result>view {
+  width: 100%;
+  display: flex;
+  font-size: 28rpx;
+  align-items: center;
+  justify-content: flex-start;
+  height: 70rpx;
+}
+
+.result>view progress {
+  width: 40%;
+  margin: 0 15rpx 0 10rpx;
+}
+
+.baby_type {
+  color: #fff;
+  font-size: 14rpx;
+  position: absolute;
+  top: 0;
+  left: 125rpx;
+}
+
+.emotion {
+  width: 120rpx;
+  text-align: center;
+  position: fixed;
+  top: 410rpx;
+  right: 110rpx;
+  font-size: 26rpx;
+}
+
+.emotion .em_line {
+  width: 120rpx;
+  height: 2rpx;
+  position: absolute;
+  bottom: -10rpx;
+  left: 0;
+  background: #f5f7fa;
+}
+
+.emotion .em_line .eml_circle {
+  width: 10rpx;
+  height: 10rpx;
+  position: absolute;
+  border-radius: 5rpx;
+  top: -46rpx;
+  left: -48rpx;
+  background: #f5f7fa;
+}
+
+.emotion .em_line .eml_l {
+  width: 60rpx;
+  height: 2rpx;
+  position: absolute;
+  transform: rotate(45deg);
+  top: -21rpx;
+  left: -51rpx;
+  background: #f5f7fa;
+}
+
+.btn-group {
+  width: 100%;
+  height: 110rpx;
+  position: fixed;
+  z-index: 4;
+  bottom: 0;
+  left: 0;
+  background: linear-gradient(to top, #f5f7fa, rgba(255, 255, 255, 0.85));
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.btn-group .btn {
+  height: 55rpx;
+  width: 33.3%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn-group .btn:first-child {
+  border-right: 1rpx solid silver;
+}
+
+.btn-group .btn:last-child {
+  border-left: 1rpx solid silver;
+}
+
+.btn-group .btn image {
+  height: 55rpx;
+  width: 55rpx;
+}
+
+.btn-group .btn:nth-child(2) {
+  height: 90rpx;
+  align-self: flex-start;
+  margin-top: 5rpx;
+  position: relative;
+}
+
+.btn-group .btn:nth-child(2) image {
+  height: 90rpx;
+  width: 90rpx;
+}
+
+.btn-group .btn .topnum {
+  min-width: 40rpx;
+  height: 40rpx;
+  box-sizing: border-box;
+  padding: 0 6rpx;
+  background: #f47983;
+  border-radius: 20rpx;
+  color: #fff;
+  font-size: 24rpx;
+  font-weight: bold;
+  text-align: center;
+  line-height: 40rpx;
+  position: absolute;
+  left: 50%;
+  top: 0;
+}
+
+.gender {
+  width: 100%;
+  height: 50rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.gender image {
+  width: 50rpx;
+  height: 50rpx;
+}

@@ -23,12 +23,17 @@ Page({
   },
   list: function() {
     wx.navigateTo({
-      url: '../storageConsole/storageConsole',
+      url: '../report_score/report_score',
+    })
+  },
+  compare: function() {
+    wx.navigateTo({
+      url: '../report_vs/report_vs',
     })
   },
   onShareAppMessage: function() {
     return {
-      title: '颜值算法全新升级，颜值排行榜上线啦！赶快来体验吧！',
+      title: '新功能人脸相似度上线！还有颜值排行榜，赶快来体验吧！',
       path: "/pages/index/index"
     }
   },
@@ -77,7 +82,7 @@ Page({
         // 上传图片
         let timestamp = Date.parse(new Date());
         timestamp = timestamp / 1000;
-        let cloudPath = timestamp + Math.floor(Math.random() * 1000) + filePath.match(/\.[^.]+?$/)[0];
+        let cloudPath = "faceimg/" + timestamp + Math.floor(Math.random() * 1000) + filePath.match(/\.[^.]+?$/)[0];
         let fileList = []
         wx.cloud.uploadFile({
           cloudPath,
@@ -92,7 +97,7 @@ Page({
               success: res => {
                 app.globalData.imagePaths = res.fileList[0].tempFileURL;
                 wx.navigateTo({
-                  url: '../storageConsole/storageConsole'
+                  url: '../report_score/report_score'
                 })
               }
             })
@@ -137,11 +142,10 @@ Page({
         })
 
         let filePath = res.tempFilePaths[0]
-
         // 上传图片
         let timestamp = Date.parse(new Date());
         timestamp = timestamp / 1000;
-        let cloudPath = timestamp + Math.floor(Math.random() * 1000) + filePath.match(/\.[^.]+?$/)[0];
+        let cloudPath = "faceimg/" + timestamp + Math.floor(Math.random() * 1000) + filePath.match(/\.[^.]+?$/)[0];
         let fileList = []
         wx.cloud.uploadFile({
           cloudPath,
@@ -157,7 +161,7 @@ Page({
               success: res => {
                 app.globalData.imagePaths = res.fileList[0].tempFileURL
                 wx.navigateTo({
-                  url: '../storageConsole/storageConsole'
+                  url: '../report_score/report_score'
                 })
               }
             })
