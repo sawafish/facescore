@@ -62,7 +62,8 @@
         <view>
           <text>颜值得分：</text>
           <progress percent="{{scoreFake}}" border-radius="15rpx" active="true" font-size="30rpx" stroke-width="30rpx" />
-          <text>{{scoreFake+" 分"}}</text>
+          <text bindlongtap='truelyscore'>{{scoreFake+" 分"}}</text>
+          <text class='truelystyle' wx:if='{{truelymark}}'>{{score.beauty}}</text>
         </view>
         <view class='hr'>
           <view class='hr_line'></view>

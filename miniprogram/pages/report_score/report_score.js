@@ -5,6 +5,7 @@ const app = getApp()
 Page({
 
   data: {
+    truelymark: false,
     fileID: '',
     cloudPath: '',
     imagePath: '',
@@ -23,6 +24,12 @@ Page({
     isShowCav: false,
     canvasUrl: "",
     gender: ""
+  },
+  truelyscore() {
+    let that = this;
+    that.setData({
+      truelymark: !that.data.truelymark
+    })
   },
   bindGetUserInfo(e) {
     let that = this;
